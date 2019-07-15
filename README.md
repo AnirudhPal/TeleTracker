@@ -71,7 +71,7 @@ Although the stepper motor wouldn't be appropriate for my applications, its mech
 
 <p align="center">
 <img src="https://cdn-global-hk.hobbyking.com/media/catalog/product/cache/1/image/660x415/17f82f742ffe127f42dca9de82fb58b1/legacy/catalog/45369.jpg" />
-<img src="https://www.renesas.com/img/misc/engineer-school/fig3-a-bldc-monitor-en.gif" />
+<img src="https://3l4sbp4ao2771ln0f54chhvm-wpengine.netdna-ssl.com/wp-content/uploads/2018/07/Brushed-vs-BLDC-Motor.jpg" />
 </p>
 <p align="center">
 Fig 4: BLDC Gimbal Motor.
@@ -87,6 +87,56 @@ Fig 5: BLDC Drive Phases.
 </p>
 
 #### Absolute Rotary Encoder
+
+Although I can commutate the motor using simple senserless techniques described in many research papers, it is dificult to do so accurately in an open control scheme. To deal with this I will pair the motor with an absolute rotary encoder that can be used for closed loop control. I decided to go with AS5048A, which is a 14 bit hall-effect absolute rotary encoder. It uses a small magnet to get its absolute rotary postion. The reason I went with this kind of an encoder is simple, it was the cheapest one I could find that had the resolution that I needed.
+
+<p align="center">
+<img src="https://media.digikey.com/Photos/Austria%20Microsystems/AS5048A-AB-1.0.jpg" />
+</p>
+<p align="center">
+Fig 5: AS5048A Evalution Board.
+</p>
+
+This sensor works on an interesting principle which I will talk briefly about. It uses the the hall effect which can be illustrated as the shifting of flowing electrons due to a magnetic field. This shift can be detected as a potential difference. If you have multiple elements like this you can map the relative magnitudes of the voltage to magnitude of magnetic flux density and translate that to a vector, that gives you the absolute rotary postion. Thankfully all of this is handled internaly by the IC and it gives us a absolute position through and SPI interface.
+
+<p align="center">
+<img src="https://www.ablic.com/en/semicon/wp-content/uploads/2018/09/img-whats-hall-effect-ic-en1.png" />
+</p>
+<p align="center">
+Fig 6: Illustration of Hall Effect.
+</p>
+
+Notes on the SPI Interface Registers
+
+|Register Address|Register Purpose|Notes|Type|
+|:-:|:-:|:-:|:-:|
+|0x0016|Zero Postion 6-13 bit|Bits 0-7 are used for this.|Read/Write|
+|0x0017|Zero Postion 0-5 bit|Bits 0-5 are used for this.|Read/Write|
+|0x3FFD|Internal Sensor Signal Gain Value|Bits 0-7 are used for this.|Read|
+|0x3FFE|Absolute Postion without Zero Correction|14 bit value.|Read|
+|0x3FFF|Absolute Postion with Zero Correction|14 bit value.|Read|
+
+Notes on the SPI Interface Packet
+
+|Packet Scheme|||
+|:-:|:-:|:-:|
+|15 bit|14 bit|13-0 bits|
+|Even Parity Bit|Read/Write Bit|Data/Register Address|
+
+Notes on the SPI Interface Read
+
+|Master|Direction|Slave|Purpose|
+|:-:|:-:|:-:|:-:|
+|Make Packet|||Construct Packet with Parity and Read Register Address|
+|Pull Chip Select High|->||Make Slave Listen|
+||<-|Send Data Packet|Slave Responds|
+|Get Packet|||Receive the Packet|
+|Pull Chip Select Low|->||Make Slave Stop Listening|
+|Decode Packet|||Translate the Data Packet to Usable Data|
+
+Notes on the SPI Interface Write
+
+> Under Construction
 
 #### H-Bridge Driver
 
