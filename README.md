@@ -47,10 +47,63 @@ Fig 3: Processed tracked image.
 
 ## Design Specification
 
+I set some design specifications for the project. The specifics are discussed below along with why they are apporpriate for my application. 
+
 ### Hardware
 
+The hardware had to inexpesive and easy to procure so others can replicate my results. This would also allow me to make my tracker at a low price point. It is possible to by trackers with the same capabilty at 600-1000$ so it makes sense to make sure my tracker cost less than 600$.
+
+#### BLDC Direct Drive
+
+The tracker requires an actuator to move, in this case that will be a motor. One can use a motor in conjunction with a gears, belt or pulley system to make it more cost effective, but I decided not to do this beacuse such systems introduce backlash error and other forms of errors due to machining tolerances. Instead I choose to do a direct drive, which in simple terms means that I will be mounting the apparatus directly to the motor drive shaft. For this to work the load has to be well balanced inorder to not apply any significant torque on the motor.
+
+Furthermore I had to be able to control the postion of the motor accurately. One might conclude that the approriate choice for such an application would be a stepper motor. Unfortunately stepper motors have a fixed number of steps per revolution which is far coarser than what I needed for my application. Here is an image of a stepper motor. 
+
+<p align="center">
+<img src="https://cdn.sparkfun.com//assets/parts/1/1/0/6/7/13656-01.jpg" />
+<img src="https://circuitdigest.com/sites/default/files/inlineimages/u/Stepper-Motor-Internal-Structure.png" />
+</p>
+<p align="center">
+Fig 4: NEMA Stepper Motor.
+</p>
+
+Although the stepper motor wouldn't be appropriate for my applications, its mechanism of controling postion by energizing different phases led me to the motor type that can get me the resolution I need. BLDC motor are similar to steppers in the sense that they have 3-phases that can be controlled. But unlike stepper motors you can modulated each of the phases to get many fine position with the motor. They are also relatively inecpesive due to their simple brushless construction and heavy use in RC Model Aviation. Here is an image of a BLDC motor.
+
+<p align="center">
+<img src="https://cdn-global-hk.hobbyking.com/media/catalog/product/cache/1/image/660x415/17f82f742ffe127f42dca9de82fb58b1/legacy/catalog/45369.jpg" />
+<img src="https://www.renesas.com/img/misc/engineer-school/fig3-a-bldc-monitor-en.gif" />
+</p>
+<p align="center">
+Fig 4: BLDC Gimbal Motor.
+</p>
+
+Despite BLDC motor's simple construction their drive mechanism is rather complicated. The require three 120 deg phase shifted sinosodial signals on the phases to rotate. The later sections discuss how I plan on acheiving this. The ability to do this process (refered to as commutation) is the making and breaking point of this project. 
+
+<p align="center">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/3_phase_AC_waveform.svg/300px-3_phase_AC_waveform.svg.png" />
+</p>
+<p align="center">
+Fig 5: BLDC Drive Phases.
+</p>
+
+#### Absolute Rotary Encoder
+
+#### H-Bridge Driver
+
+#### Feather M0 for RT Procs
+
+#### Rasberry Pi for Image Processing and Stellarium
+
+#### Pi Camera NoIR
+
 ### Software
+
+#### 10 arc-min Resolution with Encoder
+
+#### 1 arc-min Resolution with Image Processing
 
 ## Test Bench
 
 ## Experiments
+
+## References
