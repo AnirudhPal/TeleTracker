@@ -140,6 +140,8 @@ Notes on the SPI Interface Write
 
 #### H-Bridge Driver
 
+As discussed above driving a 3 phase BLDC is quite complicated. This results in the driving hardware to be substantialy expensive compared to other types of motors. BLDCs in the market are generally designed for high rpm application and consiquetly the drivers for low RPM applications are expensive. I looked at a couple of options like ICs from a company called Trinamic motion control. All of these ICs integrate several features that I can 
+
 #### Feather M0 for RT Procs
 
 #### Rasberry Pi for Image Processing and Stellarium
