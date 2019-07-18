@@ -169,7 +169,7 @@ The Featger M0 is an Atmel SAMD21 developmemnt board which has a ARM Cortex M0. 
 Fig 9: Feather M0 from Adafruit.
 </p>
 
-PWM or Pulse Width Modulation is described in a later section. In a nutshell, it allows us to emulate an analog signal by sending a digital signal with varying width of digital high and low. If we do this rapidly, then the inductor treates the switching signal as similar to an analog average. To make this happen, the SAMD21 has keep tight track of time. It is obviouse that one can do this in software (bit-banging) by using the internal clock but that would make it difficult to handle multiple PWM outputs and perform other tasks as well. To facilitate this, the chip has several internal clocks that can be dispatched to perfomr the task of generating the PWM signal.
+PWM is Pulse Width Modulation. In a nutshell, it allows us to emulate an analog signal by sending a digital signal with varying width of digital high and low. If we do this rapidly, then the inductor treates the switching signal as similar to an analog average. To make this happen, the SAMD21 has keep tight track of time. It is obviouse that one can do this in software (bit-banging) by using the internal clock but that would make it difficult to handle multiple PWM outputs and perform other tasks as well. To facilitate this, the chip has several internal clocks that can be dispatched to perfomr the task of generating the PWM signal.
 
 <p align="center">
 <img src="https://microchip.wdfiles.com/local--files/32arm:samd21-mcu-overview/samd21-block-diagram.png" />
@@ -188,9 +188,21 @@ Fig 10: SAMD21 Layout.
 
 ### Software
 
-#### PWM
+#### PWM approximation of Sine Wave
+
+> Under Construction
+
+#### Kalman Filter
+
+> Under Construction
 
 #### 10 arc-min Resolution with Encoder
+
+> Under Construction
+
+#### Zero Torque Problem
+
+> Under Construction
 
 #### 1 arc-min Resolution with Image Processing
 
@@ -198,6 +210,74 @@ Fig 10: SAMD21 Layout.
 
 ## Test Bench
 
+> Under Construction
+
 ## Experiments
 
+This is the log of all the expriments I have run so far.
+
+### AS5048A
+
+Rotary Encoder Independent Test
+
+#### Steady State
+
+#### Steady State with Kalman
+
+#### Linear Change
+
+#### Linear Change with Kalman
+
+### BLDC
+
+## Areas to Explore
+
+> Under Construction
+
+### Hardware
+
+> Under Construction
+
+#### TMC6200
+
+> Under Construction
+
+#### TMC4671
+
+> Under Construction
+
+#### Axial Flux Motor
+
+> Under Construction
+
+#### VESC
+
+> Under Construction
+
+### Software
+
+> Under Construction
+
+#### Reinforcement Learning Control Algorithms
+
+> Under Construction
+
+#### Neural Flight Mod
+
+> Under Construction
+
+#### Braking
+
+> Under Construction
+
+#### Velocity Control
+
+> Under Construction
+
+#### Acceleration Control
+
+> Under Construction
+
 ## References
+
+> Under Construction
