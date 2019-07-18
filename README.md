@@ -140,7 +140,23 @@ Notes on the SPI Interface Write
 
 #### H-Bridge Driver
 
-As discussed above driving a 3 phase BLDC is quite complicated. This results in the driving hardware to be substantialy expensive compared to other types of motors. BLDCs in the market are generally designed for high rpm application and consiquetly the drivers for low RPM applications are expensive. I looked at a couple of options like ICs from a company called Trinamic motion control. All of these ICs integrate several features that I can 
+As discussed above driving a 3 phase BLDC is quite complicated. This results in the driving hardware to be substantialy expensive compared to other types of motors. BLDCs in the market are generally designed for high rpm application and consiquetly the drivers for low RPM applications are expensive. I looked at a couple of options like ICs from a company called Trinamic Motion Control. All of these ICs integrate several features like back EMF sensing, current sensing, break before make etc; to have more accurate control on the motor. As much as I would have liked to have such features on my final project, it isnt exactly inexpensive. So I decided to go with the simplest driver possible. Here is the simplified version of the driver I am using.
+
+<p align="center">
+<img src="https://www.allaboutcircuits.com/uploads/articles/BLDC_DC_Motor_with_Hall_Effect_Sensors-1.jpg" />
+</p>
+<p align="center">
+Fig 7: BLDC Driver.
+</p>
+
+Ideal this would require three half H-Bridges which are similar to switches for each coil. Unfortunately I only had access to a Dual Full H-Bridge, the L298N driver chip. This allowed me to drive up to 4 phases using the driver board. It has some good and bad attributes. One of the good attributes is the fact that it has ability to drive high currents up to 1.5 A per H-Bridge. The down side is that it has limited current sensing capabilities, which I do plan on using to make my control algorithm more effective.
+
+<p align="center">
+<img src="https://images-na.ssl-images-amazon.com/images/I/61VkNn0PcaL._SX425_.jpg" />
+</p>
+<p align="center">
+Fig 8: L298N Driver Board.
+</p>
 
 #### Feather M0 for RT Procs
 
