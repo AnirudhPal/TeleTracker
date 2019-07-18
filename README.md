@@ -160,15 +160,41 @@ Fig 8: L298N Driver Board.
 
 #### Feather M0 for RT Procs
 
+The Featger M0 is an Atmel SAMD21 developmemnt board which has a ARM Cortex M0. I am using it in conjenction with Arduino bootloader. This has made quick prototyping quite easy and the chip is more than capable of handling the control loop. It also has the advantage of having a higher clock speed as well as the ability to do higher frequency PWM. I can also speed up the code my modifying the timer registers directly. Later I describe how that works. Since the chip doesn't have any underlying operating system, we have to rely on interupts for time delays and servicing data sent by Raspberry Pi.
+
+<p align="center">
+<img src="https://cdn-shop.adafruit.com/970x728/2772-01.jpg" />
+</p>
+<p align="center">
+Fig 9: Feather M0 from Adafruit.
+</p>
+
+PWM or Pulse Width Modulation is described in a later section. In a nutshell, it allows us to emulate an analog signal by sending a digital signal with varying width of digital high and low. If we do this rapidly, then the inductor treates the switching signal as similar to an analog average. To make this happen, the SAMD21 has keep tight track of time. It is obviouse that one can do this in software (bit-banging) by using the internal clock but that would make it difficult to handle multiple PWM outputs and perform other tasks as well. To facilitate this, the chip has several internal clocks that can be dispatched to perfomr the task of generating the PWM signal.
+
+<p align="center">
+<img src="https://microchip.wdfiles.com/local--files/32arm:samd21-mcu-overview/samd21-block-diagram.png" />
+</p>
+<p align="center">
+Fig 10: SAMD21 Layout.
+</p>
+
 #### Rasberry Pi for Image Processing and Stellarium
+
+> Under Construction
 
 #### Pi Camera NoIR
 
+> Under Construction
+
 ### Software
+
+#### PWM
 
 #### 10 arc-min Resolution with Encoder
 
 #### 1 arc-min Resolution with Image Processing
+
+> Under Construction
 
 ## Test Bench
 
