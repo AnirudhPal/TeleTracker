@@ -178,35 +178,59 @@ PWM is Pulse Width Modulation. In a nutshell, it allows us to emulate an analog 
 Fig 10: SAMD21 Layout.
 </p>
 
-#### Rasberry Pi for Image Processing and Stellarium
+#### Rasberry Pi for Image Processing and Yale Bright Star Catalogue
 
-> Under Construction
+The reason I choose to work with the Rasberry Pi was because it easy accessible and has plenty of support material online. This would make my work easier and make it possible for others to easily replicate my results. OpenCV takes about an hour to install on a Pi that is running Raspbian OS. I reccomend using [this](https://www.pyimagesearch.com/2018/09/26/install-opencv-4-on-your-raspberry-pi/) tutorial. Unfortunately, the image processing cannot be CUDA accellerated as Raspberry Pi doesnt have the neccessary hardware. This however is not that big of a problem because the image processsing I am attempting to do is not very compute intensive. Infact, one doesnt even need to use OpenCV. Here is a rough algorithm that one can use in any language of there choosing:
+
+|Algorithm|Specifics|
+|:--|:--|
+|Set camera parameters like ISO, focus, exposure etc.|Most of these have to be set based on experimentation. But if one is using this for the night sky, the parameters will stay consistent accross multiple nights.|
+|Aquire image data from camera.|The Pi Camera acts as a DMA device with the help of the Pi GPU. This means aquiring frames are quite easy.|
+|Agrigate RGB into brightness map.|This can be done easily with array manipulation and is a good candidate for concurrency.|
+|Locate the brightest spot on map.|This can be done by searching for the largest brightness value. I am concidering two different approaches to perform this concurrently. In one case each line of data can be assigned to a thread and the max value storage can be protected from data corruption with the help of locks. In another scenario we dont need locks. We just find the brightess point in each line concurrently and then find the brightess point in those bright point.|
+|Compute delta.| Find out the postion of the brightest spot in relation to the center. This will require some filtering. Maybe a Kalman filter. Maybe apply kernel convolution in the RGB to grayscale step.|
+
+Apart from using image processing for stabalization. We first need to get the object in frame. Despite there being heavy collaboration between astronomers around the world, I couldn't find a consolidated database for all stellar/celestial objects. I was able to find files from [universitites](http://tdc-www.harvard.edu/catalogs/bsc5.html) that stored mutiple objects that one can observe. The in realtion ship with GPS, time and orientation can be used to compute the location of objects in the sky. Moreover, advance simulation environments like [Stellarium](http://stellarium.org/) can also compensated for motions of different objects in the sky.
+
+One things that I am still considering is running the real-time portion of the code on the Raspberry Pi. There are some provisions within Linux that claim to provide real-time like performance. [LinuxCNC](http://linuxcnc.org/) was a reference that seem to indicate that this is possible. There is also the option of using a real-time OS like [ChibiOS](http://www.chibios.org/dokuwiki/doku.php) and the trouble of porting all of the neccessary features to a real-time OS.
+
+PUT RPI
 
 #### Pi Camera NoIR
 
-> Under Construction
+Pi Camera was an obvious choice because I am using a Raspberry Pi. The NoIR variant was a choice I made based on my application. To understand we need talk a little bit about how digital cameras work. The have a CCD or a Charge Coupled Device which is an array of small light sensors that capture levels of RGB in a scene. But one down side is that they are sensitive to IR light which throws of the color of the produced image. To fix this a camera often has an IR filter which blocks out IR light. This is useful for standard cameras but is less optimal for astro-photography. You want your sensor to get as much light as possible to you reduce ISO and get less noisy images. You can also reduce exposure time which can improve sharpness as vibrations in the system don't easily turn into artifacts in the image. So I went with the NoIR variant. The focus has to be manually adjusted for the Pi Camera. But this is a good thing as we can adjust it once and not have to worry about it later. 
+
+The camera also works with the GPU to have frames available to the CPU using Direct Memeory Access (DMA). This can simplyfy the process of image aquasition and is ilustrated [here](https://picamera.readthedocs.io/en/release-1.13/fov.html).
+
+PUT NOISE EXPOSURE IR PI CAMERA
 
 ### Software
 
+The software is limited by the hardware available. But I have tried to keep it simple so it can be more readily used or ported to other hardware.
+
 #### PWM approximation of Sine Wave
 
-> Under Construction
+In the hardware section I talked about how the BLDC motor requires 3 phase 120 deg offset sine wave to control its rotor position. However, it is cost prohibitive to have the hardware produce a sine wave using a Digital to Analog Convertor (DAC). To work around this problem we can approximate a sine wave's analog levels with a Pulse Width Modulated (PWM) signal. PWM is a digital signal that is comprised of frames in which the pulse width can be modulated to get different duty cycles. Increasing the pulse width leads to the signal behaving more like a full duty-cycle signal and reducing the pulse width leads to the signal behaving more like a empty duty-cycle signal.
+
+In my intial experimentation there were two PWM limiting factors; the frequency and resolution. The frequency is the number of frames the hardware can produce in a second. This was causing audible noise in the coils that is a function of the PWM frequency and to get rid of it I would have to push the frequency into the in-audible range of audio frequencies. The resolution is the number of individual pulse width sizes available in a given frame. This would have an effect on the theoretical resolution of the motor position. I would have to increase this enough to not run into resolution problems. To achieve this one has to set parameters for a timer in the SAMD21 and the process is illustrated [here](https://cdn.sparkfun.com/datasheets/Dev/Arduino/Boards/Atmel-42181-SAM-D21_Datasheet.pdf) in Section 30 on page 651.
+
+Sine appoximation can be done using a look-up table that store the PWM values for a sine wave. I found this [calculator](http://elabz.com/wp-content/uploads/2011/11/sin_funct.zip) online that provided the values which can then be used to to drive the motor. It might still be possible to drive the motor using a more true sine waves using audio hardware which is relatively in-expensive. 
 
 #### Kalman Filter
 
-> Under Construction
+The kalman filter is intended to zero in on the true value of the sensor by taking multiple observations. It is relatively simple to implement for a single sensor and you can find multiple libraries that have the filter already implemented. The basic idea is that previous observation and approximation is used to evaluate the trueness of the current observation to derive a new approximation. I found the idea similar to old RTT estimation method in TCP. 
 
 #### 10 arc-min Resolution with Encoder
 
-> Under Construction
+This resolution will be attained by using a database to obtain absolute position of the object in the sky. Then computing the relative postion of the telescope to that object. That data can be fed into the targets of the PIDs that controls the BLDC and gets feedback from the encoder.
 
 #### Zero Torque Problem
 
-> Under Construction
+As the BLDC reaches the intended postion. The torque on the motor nears zero, which means it can hold that position. This is a problem as we want to keep the system steady at that position. To get around this problem we can oscilate the target postion at a high frequency around the intended postion so that the rotor has a holding torque. This however seems to be overcomplicated solution to a simple problem. If we for-go the sine approximation and just switch between the 6 orientations acheivable by a digital signal in the motor. We can have simpler solution to the zero torque problem. 
 
 #### 1 arc-min Resolution with Image Processing
 
-> Under Construction
+Once the object is in the field of view we switch from the encoder to the image processing algorithm to control the motor using PID.
 
 ## Test Bench
 
