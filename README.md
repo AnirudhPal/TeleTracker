@@ -253,7 +253,7 @@ Fig 19: Blurry image due to high exposure.
 </p>
 
 <p align="center">
-<img src="IRIMG" />
+<img src="assets/IRIMG.jpg" />
 </p>
 <p align="center">
 Fig 20: Effects of IR on image.
@@ -268,7 +268,7 @@ The software is limited by the hardware available. But I have tried to keep it s
 In the hardware section I talked about how the BLDC motor requires 3 phase 120 deg offset sine wave to control its rotor position. However, it is cost prohibitive to have the hardware produce a sine wave using a Digital to Analog Convertor (DAC). To work around this problem we can approximate a sine wave's analog levels with a Pulse Width Modulated (PWM) signal.
 
 <p align="center">
-<img src="PWMIL" />
+<img src="assets/PWMIL.jpg" />
 </p>
 <p align="center">
 Fig 21: 25% duty cycle in PWM.
@@ -277,7 +277,7 @@ Fig 21: 25% duty cycle in PWM.
 In my initial experimentation there were two PWM limiting factors; the frequency and resolution. The frequency is the number of frames the hardware can produce in a second. This was causing audible noise in the coils that is a function of the PWM frequency and to get rid of it I would have to push the frequency into the in-audible range of audio frequencies. The resolution is the number of individual pulse width sizes available in a given frame. This would have an effect on the theoretical resolution of the motor position. I would have to increase this enough to not run into resolution problems. To achieve this one has to set parameters for a timer in the SAMD21 and the process is illustrated [here](https://cdn.sparkfun.com/datasheets/Dev/Arduino/Boards/Atmel-42181-SAM-D21_Datasheet.pdf) in Section 30 on page 651.
 
 <p align="center">
-<img src="PWMIMG" />
+<img src="assets/PWMIMG.JPG" />
 </p>
 <p align="center">
 Fig 22: Single slope PWM in SAMD21.
@@ -308,8 +308,8 @@ Once the object is in the field of view we switch from the encoder to the image 
 To test my hardware and software choices, I decided to make a single axis setup for a small scope. This would allow me to run more tests without requiring a complicated and/or expensive hardware setup. I made my setup using aluminum, most because it was freely available and was homogenous. In a control system the hardware needs to be fairly rigid to avoid sloppiness. Also, we have to be aware of the resonance frequency of the system to avoid inducing excessive vibrations. Using aluminum address both of these concerns. Here are the designs:
 
 <p align="center">
-<img src="RailIMG" />
-<img src="MountIMG" />
+<img src="assets/RailIMG.JPG" />
+<img src="assets/MountIMG.JPG" />
 </p>
 <p align="center">
 Fig 23: Test bench which was fabricated out of aluminum. Click link below for full file.
@@ -334,7 +334,7 @@ I have run some experiments evaluating the theoretical principle that I have bee
 The rotary encoder was evaluated on a HAAS ST20Y to check its linearity and to attempt to minimize noise using physical and in software method. Below I have attached the mount files and image of the setup.
 
 <p align="center">
-<img src="HolderIMG" />
+<img src="assets/HolderIMG.JPG" />
 </p>
 <p align="center">
 Fig 25: Mount for precision alignment.
@@ -350,7 +350,7 @@ Fig 26: Mount after fabrication.
 </p>
 
 <p align="center">
-<img src="LatheIMG" />
+<img src="assets/LatheIMG.JPG" />
 </p>
 <p align="center">
 Fig 27: Mount in testing equipment.
@@ -591,7 +591,7 @@ uint8_t parityCalc(uint16_t data) {
 **Observations:** I noticed a slight amount of deviation and noise in the signal. The signal jumps between 45.23 and 45.03 with an r-factor of 0.0021 degrees. There was no predictable pattern and the noise was random.
 
 <p align="center">
-<img src="Steady45IMG" />
+<img src="assets/Steady45IMG.PNG" />
 </p>
 <p align="center">
 Fig 28: Line graph.
@@ -606,7 +606,7 @@ Fig 28: Line graph.
 **Observations:** I noticed a slight amount of deviation and noise in the signal. The signal jumps between 45.12 and 44.85 with an r-factor of 0.0009 degrees. There was no predictable pattern and the noise was random. The data did indicate immediate convergence from initial estimate in the filter.
 
 <p align="center">
-<img src="Steady45KIMG" />
+<img src="assets/Steady45KIMG.PNG" />
 </p>
 <p align="center">
 Fig 29: Line graph.
@@ -621,7 +621,7 @@ Fig 29: Line graph.
 **Observations:** The data shows some periodic deviation from the mean and is accurate up to 1.0 degree.
 
 <p align="center">
-<img src="LinearIMG" />
+<img src="assets/LinearIMG.PNG" />
 </p>
 <p align="center">
 Fig 30: Line graph.
