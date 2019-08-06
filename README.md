@@ -356,6 +356,12 @@ Fig 26: Mount after fabrication.
 Fig 27: Mount in testing equipment.
 </p>
 
+Code
+
+```c
+
+```
+
 #### Steady State
 
 **Setup:** I attempt to measure a preset angle of 45 degrees without using any filters and polling the sensor as fast as possible.
@@ -423,23 +429,23 @@ Click [here]() to view the video.
 
 #### Rotation Test
 
-**Setup:**
+**Setup:** Small BLDC running code to perform sinosoidal PWM commutation. 
 
-**Observations:**
+**Observations:** The motor rotates in a controlled fashion but not at a fixed speed. It seems to have certain portions of the rotation where it speeds up. It also produces an audible noise.
 
-**Conclusions:**
+**Conclusions:** We have previously discused this noise. The pattern of rotation speed is due to the algorithm not being current controlled as certin postions have higher torque applied than others. 
 
 #### Rotation Test with Load
 
-**Setup:**
+**Setup:** Large BLDC running code to perform sinosoidal PWM commutation. 
 
-**Observations:**
+**Observations:** Similar behaviour to previous tests. Although a higher current draw.
 
-**Conclusions:**
+**Conclusions:** This is due to the stall state the motor is in due to the load. This also means the rotation is slightly dealyed in orientation till the torque build up. 
 
 #### Position Test with Load
 
-**Setup:**
+**Setup:** Large BLDC in conjunction with encoder running code to performing position control. 
 
 **Observations:**
 
