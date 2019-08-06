@@ -15,14 +15,14 @@ Let say, you wanted to take a picture of the Orion Nebula from your backyard. Ev
 1. The earth rotates at a constant rate, making the sky shift.
 
 <p align="center">
-<img src="EarthRotationIL" />
+<img src="assets/EarthRotationIL.jpg" />
 </p>
 <p align="center">
 Fig 1: Earths rotation and its effects on sky.
 </p>
 
 <p align="center">
-<img src="StarTrailingIMG" />
+<img src="assets/StarTrailingIMG.jpg" />
 </p>
 <p align="center">
 Fig 2: Trailing of stars due to earth's rotation as observed from my home.
@@ -31,7 +31,7 @@ Fig 2: Trailing of stars due to earth's rotation as observed from my home.
 2. Its hard to locate a dim object in the night sky accurately and their position changes based on location.
 
 <p align="center">
-<img src="SkySameTimeIL" />
+<img src="assets/SkySameTimeIL.jpg" />
 </p>
 <p align="center">
 Fig 3: Location and the Sky.
@@ -40,14 +40,14 @@ Fig 3: Location and the Sky.
 3. Light pollution makes it difficult to see the stars and take pictures.
 
 <p align="center">
-<img src="LightPollutionIMG" />
+<img src="assets/LightPollutionIMG.jpg" />
 </p>
 <p align="center">
 Fig 4: Light pollution as observed from my home.
 </p>
 
 <p align="center">
-<img src="LightPollutionFilteredIMG" />
+<img src="assets/LightPollutionFilteredIMG.jpg" />
 </p>
 <p align="center">
 Fig 5: Same image after software filtering.
@@ -76,13 +76,13 @@ Furthermore, I have to be able to control the position of the motor accurately. 
 Although, the stepper motor wouldn't be appropriate for my applications, its mechanism of controlling position by energizing different phases led me to the motor type that can get me the resolution I need. BLDC motor are similar to steppers in the sense that they have 3-phases that can be controlled. But unlike stepper motors you can modulated each of the phases to get many fine position with the motor. They are also relatively inexpensive due to their simple brushless construction and heavy use in RC model aviation. Here is an image of a BLDC motor and its physical and electrical construction.
 
 <p align="center">
-<img src="BLDCIMG" />
+<img src="assets/BLDCIMG.jpg" />
 <p align="center">
 Fig 6: BLDC Motor.
 </p>
 
 <p align="center">
-<img src="BLDCPhysElecIL" />
+<img src="assets/BLDCPhysElecIL.jpg" />
 <p align="center">
 Fig 7: Physical and electrical construction of a BLDC motor.
 </p>
@@ -90,7 +90,7 @@ Fig 7: Physical and electrical construction of a BLDC motor.
 Despite BLDC motor's simple construction their drive mechanism is rather complicated. The require three 120 deg phase shifted sinusoidal signals on the phases to rotate. The later sections discuss how I plan on achieving this. The ability to do this process (referred to as commutation) is the making and breaking point of this project.
 
 <p align="center">
-<img src="BLDCDriveIL" />
+<img src="assets/BLDCDriveIL.jpg" />
 </p>
 <p align="center">
 Fig 8: BLDC drive analog and digital commutation.
@@ -112,7 +112,7 @@ Step|Phase A|Phase B|Phase C
 Although I can commutate the motor using simple senseless techniques described in many [research papers](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C15&q=bldc+sensorless+control&oq=BLDC+Sens), it is difficult to do so accurately in an open control scheme. To deal with this I paired the motor with an absolute rotary encoder that can be used for closed loop control. I decided to go with AS5048A, which is a 14 bit hall-effect absolute rotary encoder. It uses a small magnet to get its absolute rotary position. The reason I went with this kind of an encoder is simple, it was the cheapest one I could find that had the resolution that I needed.
 
 <p align="center">
-<img src="AS5048AIMG" />
+<img src="assets/AS5048AIMG.jpg" />
 </p>
 <p align="center">
 Fig 9: AS5048A evaluation board.
@@ -121,7 +121,7 @@ Fig 9: AS5048A evaluation board.
 This sensor works on an interesting principle which I will talk about briefly. It uses hall-effect which can be visualized as the shifting of flowing electrons due to a magnetic field. This shift can be detected as a potential difference. If you have multiple hall-effect elements, then you can map the relative magnitudes of the voltage to magnitude of magnetic flux density and translate that to a vector. That gives you the absolute rotary position. Thankfully, all of this is handled internally by the IC and it gives us a absolute position through and SPI interface.
 
 <p align="center">
-<img src="HallEffectIL" />
+<img src="assets/HallEffectIL.jpg" />
 </p>
 <p align="center">
 Fig 10: Hall-effect illustration.
@@ -160,7 +160,7 @@ Notes on the SPI Interface Read
 As discussed above driving a 3 phase BLDC is quite complicated. This results in the driving hardware being substantially expensive compared to other types of motors. BLDCs in the market are generally designed for high rpm application and consequently the drivers for low RPM applications are expensive. I looked at a couple of options like ICs from a company called Trinamic Motion Control. All of these ICs integrate several features like back EMF sensing, current sensing, break before make etc; to have more accurate control of the motor. As much as I would have liked to have such features on my final project, it isn't exactly inexpensive. So, I decided to go with the simplest driver possible. Here is the simplified version of the driver I am using.
 
 <p align="center">
-<img src="TripleHalfIL" />
+<img src="assets/TripleHalfIL.jpg" />
 </p>
 <p align="center">
 Fig 11: Electrical representation of TI DRV8313.
@@ -169,7 +169,7 @@ Fig 11: Electrical representation of TI DRV8313.
 Ideal this would require three half H-Bridges which are similar to switches for each coil. Unfortunately I only had access to a dual full H-Bridge, the L298N driver chip. This allowed me to drive up to 4 phases using the driver board. It has some good and bad attributes. One of the good attributes is the fact that it has ability to drive high currents up to 1.5 A per H-Bridge. The down side is that it has limited current sensing capabilities, which I do plan on using to make my control algorithm more effective.
 
 <p align="center">
-<img src="DualFullIL" />
+<img src="assets/DualFullIL.jpg" />
 </p>
 <p align="center">
 Fig 12: Electrical representation of L298N.
@@ -180,7 +180,7 @@ Fig 12: Electrical representation of L298N.
 The Feather M0 is an Atmel SAMD21 development board which has a ARM Cortex M0. I am using it in conjunction with Arduino bootloader. This has made quick prototyping quite easy and the chip is more than capable of handling the control loop. It also has the advantage of having a higher clock speed as well as the ability to do higher frequency PWM. I can also speed up my code by modifying the timer registers directly. Later, I describe how that works. Since the chip doesn't have any underlying multi-tasking operating system, we have to rely on interrupts for time delays and servicing data sent by the Raspberry Pi.
 
 <p align="center">
-<img src="FeatherIMG" />
+<img src="assets/FeatherIMG.jpg" />
 </p>
 <p align="center">
 Fig 13: Feather M0.
@@ -203,7 +203,7 @@ The reason I choose to work with the Raspberry Pi was because it easy accessible
 Apart from using image processing for stabilization. We first need to get the object in frame. Despite there being heavy collaboration between astronomers around the world, I couldn't find a consolidated database for all stellar/celestial objects. I was able to find files from [universitites](http://tdc-www.harvard.edu/catalogs/bsc5.html) that stored multiple objects. We can use this in relationship with the GPS, time and orientation to compute the location of objects in the sky. Moreover, advance simulation environments like [Stellarium](http://stellarium.org/) can also compensated for motions of different objects in the sky.
 
 <p align="center">
-<img src="RPiIMG" />
+<img src="assets/RPiIMG.jpg" />
 </p>
 <p align="center">
 Fig 14: Raspberry Pi.
@@ -216,7 +216,7 @@ One things that I am still considering is running the real-time portion of the c
 Pi Camera was an obvious choice because I am using a Raspberry Pi. The NoIR variant was a choice I made based on my application. To understand this, we need talk a little bit about how digital cameras work. The have a CCD or a Charge Coupled Device which is an array of small light sensors that capture levels of RGB in a scene. But one down side is that they are sensitive to IR light which throws of the color of the produced image. To fix this a camera often has an IR filter which blocks out IR light. This is useful for standard cameras but is less optimal for astro-photography. You want your sensor to get as much light as possible to reduce ISO and get less noisy images. You can also reduce exposure time which can improve sharpness as vibrations in the system don't easily turn into artifacts in the image. Thus, I went with the NoIR variant. The focus has to be manually adjusted for the Pi Camera. But this is a good thing as we can adjust it once and not have to worry about it later.
 
 <p align="center">
-<img src="CamIMG" />
+<img src="assets/CamIMG.jpg" />
 </p>
 <p align="center">
 Fig 15: Pi Camera NoIR.
@@ -225,28 +225,28 @@ Fig 15: Pi Camera NoIR.
 The camera also works with the GPU to have frames available to the CPU using Direct Memory Access (DMA). This can simplify the process of image acquisition and is illustrated [here](https://picamera.readthedocs.io/en/release-1.13/fov.html). Here are some pictures to illustrate effects of ISO, IR, and Exposure.
 
 <p align="center">
-<img src="LowISOIMG" />
+<img src="assets/LowISOIMG.jpg" />
 </p>
 <p align="center">
 Fig 16: Dark image due to low ISO.
 </p>
 
 <p align="center">
-<img src="HighISOIMG" />
+<img src="assets/HighISOIMG.jpg" />
 </p>
 <p align="center">
 Fig 17: Noisy image due to high ISO.
 </p>
 
 <p align="center">
-<img src="LowExpIMG" />
+<img src="assets/LowExpIMG.jpg" />
 </p>
 <p align="center">
 Fig 18: Dark image due to low exposure.
 </p>
 
 <p align="center">
-<img src="HighExpIMG" />
+<img src="assets/HighExpIMG.jpg" />
 </p>
 <p align="center">
 Fig 19: Blurry image due to high exposure.
