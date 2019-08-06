@@ -634,26 +634,35 @@ Fig 30: Line graph.
 The next round of tests evaluate the ability of the BLDC to hold and go to a given orientation. I used an Agilent oscilloscope to measure the signals, L298N driver to drive the BLDC and a bench power supply to feed the system. Here is an image of the system and the video of the PWM signal for generating the controlled rotation.
 
 <p align="center">
-<img src="TestIMG" />
+<img src="assets/TestIMG.jpg" />
 </p>
 <p align="center">
 Fig 31: Test setup.
 </p>  
 
 <p align="center">
-<img src="ScopeIMG" />
+<img src="assets/ScopeIMG.JPG" />
 </p>
 <p align="center">
 Fig 32: PWM sine approximation.
 </p>
 
-Click [here]() to view the video.
+Click [here](https://www.youtube.com/watch?v=edGPWJ-mFYk&feature=share) to view the video.
 
 #### Rotation Test
 
 **Setup:** Small BLDC running code to perform sinosoidal PWM commutation.
 
 **Observations:** The motor rotates in a controlled fashion but not at a fixed speed. It seems to have certain portions of the rotation where it speeds up. It also produces an audible noise.
+
+<p align="center">
+<img src="assets/RotateIMG.JPG" />
+</p>
+<p align="center">
+Fig 33: Rotation unloaded.
+</p>
+
+Click [here](https://www.youtube.com/watch?v=Em4e8ZN3ZCw&feature=share) to view the video.
 
 **Conclusions:** We have previously discused this noise. The pattern of rotation speed is due to the algorithm not being current controlled as certin postions have higher torque applied than others.
 
@@ -663,15 +672,16 @@ Click [here]() to view the video.
 
 **Observations:** Similar behaviour to previous tests. Although a higher current draw.
 
+<p align="center">
+<img src="assets/LoadIMG.JPG" />
+</p>
+<p align="center">
+Fig 34: Rotation loaded.
+</p>
+
+Click [here](https://www.youtube.com/watch?v=lobNVU6qlLo&feature=share) to view the video.
+
 **Conclusions:** This is due to the stall state the motor is in due to the load. This also means the rotation is slightly dealyed in orientation till the torque build up.
-
-#### Position Test with Load
-
-**Setup:** Large BLDC in conjunction with encoder running code to performing position control.
-
-**Observations:**
-
-**Conclusions:**
 
 ## References
 
