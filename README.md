@@ -319,7 +319,7 @@ Fig 23: Test bench which was fabricated out of aluminum. Click link below for fu
 [CAD2](https://a360.co/2YsIRpC)
 
 <p align="center">
-<img src="TestBenchIMG" />
+<img src="assets/TestBenchIMG.jpg" />
 </p>
 <p align="center">
 Fig 24: Test bench after fabrication.
