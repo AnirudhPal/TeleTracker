@@ -704,5 +704,7 @@ Click [here](https://www.youtube.com/watch?v=lobNVU6qlLo&feature=share) to view 
 Most of the references are hyperlinked within the report in their relevant locations. Here I have included the references that are not mentioned above.
 
 [Sidereal Technology](http://siderealtechnology.com/DirectDriveWorkInProgress.pdf)
+
 [ArduinoDeXXX](https://www.instructables.com/id/DIY-Brushless-Gimbal-with-Arduino/)
+
 [Amazon](https://www.amazon.com/Megapixel-without-filter-Silver-Cameras/dp/B0768CGTZX)
