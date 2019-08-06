@@ -2,7 +2,13 @@
 
 ## Index
 
-> Under Construction
+1. [**Abstract**](#abstract)
+
+2. [**Motivation**](#motivation)
+
+3. [**Design Specification**](#design-specification)
+
+	* [*Hardware*](#hardware)
 
 ## Abstract
 
