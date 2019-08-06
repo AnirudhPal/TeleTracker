@@ -356,10 +356,232 @@ Fig 26: Mount after fabrication.
 Fig 27: Mount in testing equipment.
 </p>
 
-Code
+Header
 
 ```c
+/* Macro Vars */
+#define SPI_CS      10
+#define SER_BAUD    9600
+#define SENS_READ   0x4000
+#define SENS_WRITE  0x0
+#define UNIT        0x1
+#define BIT_STRIP   0x3FFF
+#define ANG_REG     0x3FFF
+#define CIRC_DEG    360.0
+#define CIRC_INT    16384.0
+#define COR_REG     0x3FFE
+#define DAG_REG     0x3FFD
+#define ZRH_REG     0x0016
+#define ZRL_REG     0x0017
+#define AMP_STRIP   0xFF
+#define ZRH_STRIP   0xFF
+#define ZRL_STRIP   0x3F
+#define ZR_MOD      0x3FFF
+#define ERR_MEA     0.02197
 
+/* Global Vars */
+SPISettings spiBaud = SPISettings(1000000, MSBFIRST, SPI_MODE1);
+uint16_t zero = 0;
+uint16_t samples = 10;
+float errEst = 0.03;
+float est = 45.0;
+float k = 0;
+
+/* Helper Funcs */
+uint16_t readReg(uint16_t);
+uint16_t writeReg(uint16_t, uint16_t);
+float getAngle();
+uint16_t getRawAngle();
+uint16_t getCordic();
+uint16_t getGain();
+uint16_t getRawZeroPos();
+void setZeroPos();
+uint8_t parityCalc(uint16_t);
+uint16_t breakPacket(uint16_t);
+uint16_t makePacket(uint16_t, uint16_t);
+uint16_t sendPacket(uint16_t);
+float getKalmanAngle();
+```
+
+Source
+
+```c
+/* Import Libs */
+#include <Arduino.h>      // Arduino Core
+#include <SPI.h>          // SPI Library
+#include <angleSensor.h>  // Header
+
+/* Setup */
+void setup() {
+  // Set as OUTPUT
+  pinMode(SPI_CS, OUTPUT);
+  // Disable Chip
+  digitalWrite(SPI_CS, HIGH);
+
+  // Begin SPI Comms
+  SPI.begin();
+
+  // Begin Serial Comms
+  Serial.begin(SER_BAUD);
+
+  // Zero Sensor
+  setZeroPos();
+
+  // Wait Hello
+  while(!Serial);
+  Serial.println("Data Start");
+}
+
+/* Loop */
+void loop() {
+  while (Serial.available() <= 0);
+  String num = "";
+  num += (char)Serial.read();
+  num += (char)Serial.read();
+  num += (char)Serial.read();
+  int j = num.toInt();
+  int i;
+  if(j != 0) {
+  for(i = 0; i < 200; i++) {
+    Serial.print(i);
+    Serial.print(',');
+    Serial.print(getAngle());
+    Serial.print(',');
+    Serial.print(k);
+    Serial.print(',');
+    Serial.print(errEst);
+    Serial.print(',');
+    Serial.println(getKalmanAngle());
+    delay(20);
+  }}
+  //Serial.println(getKalmanAngle());
+}
+
+/* Abstract Funs */
+float getAngle() {
+  //uint16_t angleRaw = getRawAngle();
+  //int angleCor = (int)angleRaw - (int)zero;
+	//if(angleCor > 8191) angleCor = -((0x3FFF)-angleCor);
+  //if(angleCor < -0x1FFF) angleCor = angleCor+0x3FFF;
+  return (getRawAngle() / CIRC_INT) * CIRC_DEG;
+}
+
+float getKalmanAngle() {
+  //uint16_t angleRaw = getRawAngle();
+  //int angleCor = (int)angleRaw - (int)zero;
+	//if(angleCor > 8191) angleCor = -((0x3FFF)-angleCor);
+  //if(angleCor < -0x1FFF) angleCor = angleCor+0x3FFF;
+  float meaAngle = (getRawAngle() / CIRC_INT) * CIRC_DEG;
+
+  // Step 1
+  float kalmanGain = errEst / (errEst + ERR_MEA);
+  k = kalmanGain;
+
+  // Step 3
+  errEst = (1.0 - kalmanGain) * est;
+
+  // Step 2
+  est = est + (kalmanGain * (meaAngle - est));
+
+  // Step 4
+  return est;
+}
+
+uint16_t getRawAngle() {
+  return readReg(ANG_REG);
+}
+
+uint16_t getCordic() {
+  return readReg(COR_REG);
+}
+
+uint16_t getGain() {
+  return readReg(DAG_REG) & AMP_STRIP;
+}
+
+uint16_t getRawZeroPos() {
+  /**
+  uint16_t msb = readReg(ZRH_REG) & ZRH_STRIP;
+  uint16_t lsb = readReg(ZRL_REG) & ZRL_STRIP;
+  return (lsb << 8) | msb;
+  **/
+  return zero;
+}
+
+void setZeroPos() {
+  /**
+  uint16_t curAngle = getCordic();
+  uint16_t msb = curAngle & ZRH_STRIP;
+  uint16_t lsb = curAngle >> 8;
+  writeReg(ZRL_REG, lsb);
+  return writeReg(ZRH_REG, msb);
+  **/
+  zero = getRawAngle();
+}
+
+/* Helper Funcs */
+uint16_t readReg(uint16_t reg) {
+  // Return
+  return breakPacket(sendPacket(makePacket(reg, SENS_READ)));
+}
+
+uint16_t writeReg(uint16_t reg, uint16_t data) {
+  // Write Command
+  sendPacket(makePacket(reg, SENS_WRITE));
+
+  // Return
+  return breakPacket(sendPacket(makePacket(data, SENS_READ)));
+}
+
+uint16_t breakPacket(uint16_t pack) {
+  return pack & BIT_STRIP;
+}
+
+uint16_t sendPacket(uint16_t pack) {
+  // Start SPI with Settings
+  SPI.beginTransaction(spiBaud);
+
+  // Chip Select Device
+  digitalWrite(SPI_CS, LOW);
+
+  // Transfer Command
+  uint16_t res = SPI.transfer16(pack);
+
+  // Chip Unselect Device
+  digitalWrite(SPI_CS,HIGH);
+
+  // End SPI
+  SPI.endTransaction();
+
+  // Return Response
+  return res;
+}
+
+uint16_t makePacket(uint16_t reg, uint16_t wr) {
+  // Append Register Address
+  wr = wr | reg;
+
+  // Add Parity
+  wr |= (uint16_t)parityCalc(wr) << 15;
+
+  // Return Packet
+  return wr;
+}
+
+uint8_t parityCalc(uint16_t data) {
+  byte cnt = 0;
+	byte i;
+
+	for (i = 0; i < 16; i++)
+	{
+		if (data & 0x1)
+		{
+			cnt++;
+		}
+		data >>= 1;
+	}
+	return cnt & 0x1;
+}
 ```
 
 #### Steady State
@@ -429,23 +651,23 @@ Click [here]() to view the video.
 
 #### Rotation Test
 
-**Setup:** Small BLDC running code to perform sinosoidal PWM commutation. 
+**Setup:** Small BLDC running code to perform sinosoidal PWM commutation.
 
 **Observations:** The motor rotates in a controlled fashion but not at a fixed speed. It seems to have certain portions of the rotation where it speeds up. It also produces an audible noise.
 
-**Conclusions:** We have previously discused this noise. The pattern of rotation speed is due to the algorithm not being current controlled as certin postions have higher torque applied than others. 
+**Conclusions:** We have previously discused this noise. The pattern of rotation speed is due to the algorithm not being current controlled as certin postions have higher torque applied than others.
 
 #### Rotation Test with Load
 
-**Setup:** Large BLDC running code to perform sinosoidal PWM commutation. 
+**Setup:** Large BLDC running code to perform sinosoidal PWM commutation.
 
 **Observations:** Similar behaviour to previous tests. Although a higher current draw.
 
-**Conclusions:** This is due to the stall state the motor is in due to the load. This also means the rotation is slightly dealyed in orientation till the torque build up. 
+**Conclusions:** This is due to the stall state the motor is in due to the load. This also means the rotation is slightly dealyed in orientation till the torque build up.
 
 #### Position Test with Load
 
-**Setup:** Large BLDC in conjunction with encoder running code to performing position control. 
+**Setup:** Large BLDC in conjunction with encoder running code to performing position control.
 
 **Observations:**
 
