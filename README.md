@@ -18,7 +18,7 @@
 	* [*AS5048A*](#as5048a)
 	* [*BLDC*](#bldc)
 	
-6. [**References**](#refrences)
+6. [**References**](#references)
 
 ## Abstract
 
