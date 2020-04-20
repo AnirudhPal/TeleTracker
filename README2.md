@@ -1,4 +1,4 @@
-# AR Telescope - CS590 Independent Study under Dr. Voicu Popescu
+# AR Telescope - CS590 Independent Study
 
 ## Index
 
