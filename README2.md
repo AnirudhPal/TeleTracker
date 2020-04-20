@@ -15,14 +15,31 @@ Right from the start, I wish to clarify that the information I present here is j
 Before we get into the weeds of actual telescope construction, design and manufacturing; lets acknowledge that when we look up in the sky, most of us can appreicate the beauty of what we are looking at but we are not as good at recognizing stars, celesetial bodies and constelations. Knowing what we are looking at can further enhance our experience and can help us navigate the night-sky. Lets look at an example:
 
 <p align="center">
-<img src="assets/EarthRotationIL.jpg" />
+  <img src="assets/EarthRotationIL.jpg" />
 </p>
 <p align="center">
-Figure 1: Wide-field shoot of the night sky. Beautiful, but there is more too it.
+  Figure 1: Wide-field shoot of the night sky. Beautiful, but there is more too it.
 </p>
 
 Here we see a picture of the night-sky. We see a lot of stars, but most of us do not really recognize what we are looking at. We also miss some significant stellar objects that we have managed to capture in the frame as they are drowned out in the sea of point lights. Lets look at a processed image that was obtained by using a software tool called [Astrometry](http://astrometry.net/).
 
+<p align="center">
+  <img src="assets/EarthRotationIL.jpg" />
+</p>
+<p align="center">
+  Figure 2: Star detection using astrometry.
+</p>
+
+That gives us a lot more information about what we are looking at. This means that now we are able to moke more intresting observations. Here is a crop of one of the spots on the previous picture. This might just look like a star, but in reality we have captured a picture of the [Orion nebula](https://en.wikipedia.org/wiki/Orion_Nebula). We are able to make this determination because, with the help of the astrometry overlay, we know exactly where all stellar objects should be in the frame.
+
+<p align="center">
+  <img src="assets/EarthRotationIL.jpg" />
+</p>
+<p align="center">
+  Figure 3: Orion nebula.
+</p>
+
+### Small Tutorial
 
 ## Physical Construction
 
