@@ -39,7 +39,25 @@ That gives us a lot more information about what we are looking at. This means th
   Figure 3: Orion nebula.
 </p>
 
-### Small Tutorial
+### Short Tutorial
+
+#### Update & Upgrade
+> sudo apt-get update
+> sudo apt-get upgrade
+
+#### Install Astrometry
+> sudo apt-get install astrometry.net
+
+#### Get Index Files
+> wget http://data.astrometry.net/debian/astrometry-data-4208-4219_0.45_all.deb
+> sudo dpkg -i astrometry-data-4208-4219_0.45_all.deb
+
+#### Run Solver on Image URL
+> solve-filed 
+
+### Short Tutorial
+
+
 
 ## Physical Construction
 
