@@ -41,23 +41,53 @@ That gives us a lot more information about what we are looking at. This means th
 
 ### Short Tutorial
 
+In this tutorial I outline how to setup the astromtery local on a Windows 10 system. Please not that there is documentation available from astrometry.net, but their documentation is a little outdated compared to their current version of the software. This is a lot more simplified, but if you are interested here is the link to astrometry [documentation](http://astrometry.net/doc/build.html#build).
+
+#### Install Windows Subsystem for Linux
+
+The documentation for this process is can be found [here](https://www.windowscentral.com/install-windows-subsystem-linux-windows-10). Effectively, it adds a headless Ubuntu on your Windows 10 computer. This is important because the build process for Linux is much simpler than for Windows.
+
 #### Update & Upgrade
+
+If you installed the Windows Subsystem for the first time. Please run the following commands on the terminal.
+
 > sudo apt-get update
 > sudo apt-get upgrade
 
 #### Install Astrometry
+
+Now we can install astrometry through the package manager. This only install the executables for star detection, it does not have a star dataset to work with.
+
 > sudo apt-get install astrometry.net
 
 #### Get Index Files
+
+Once astrometry is installed, we can now proceed to installing the neccessary datasets for doing star pattern recognition. The terminal commands below are for widefield databases. However, there are more granular databases/index files available from astrometry on this [link](http://data.astrometry.net/debian/).
+
 > wget http://data.astrometry.net/debian/astrometry-data-4208-4219_0.45_all.deb
 > sudo dpkg -i astrometry-data-4208-4219_0.45_all.deb
 
 #### Run Solver on Image URL
-> solve-filed 
 
-### Short Tutorial
+Now all the neccesary files are installed and we can use the solver on a sample image.
 
+> solve-field [filepath]
 
+Now if you image is located on your Windows File System, please add the following to the path
+
+> solve-field /mnt/[full filepath]
+
+#### Speed Optimization
+
+There are several ways to speed up the star detection process. Here are the two optimization that I have tested and gotten the recognition to happen in seconds. The first you can apply universally to large image files. You can downsample the image by a factor by using this command.
+
+> solve-field --downsample [downsample factor] [filepath]
+
+After you solve the first image, you will know the field of view of your image. It will also tell you the index file that it used to recognize the pattern. I recommend that you only keep index files that are of the same field of view or smaller. The installed index files can be found in the following location:
+
+> cd /usr/share/astrometry/
+
+Use rm to remove index files that you don't need. The nomenclature of the index files are outlined [here](http://astrometry.net/doc/readme.html#getting-index-files).
 
 ## Physical Construction
 
