@@ -1,5 +1,3 @@
-<script type="text/javascript" src="//fsi-site.neptunelabs.com/fsi/viewer/applications/viewer/js/fsiviewer.js"></script>
-
 # AR Telescope - CS590 Independent Study
 
 ## Abstract
@@ -10,17 +8,12 @@ Augmented/Virtual reality lets us explore worlds right from our living rooms. Ho
 
 Right from the start, I wish to clarify that the information I present here is just an account of the work I did. It is by no means complete, optimal or ground-breaking. I ran into several technical challenges, some I was able to overcome, others I am still figuring out how to overcome. The biggest take-away that one can expect from this article is the telescope construction. The designs I came up with our quite a bit more mature than designs presented in other DIY articles. I use more precise industrial manufacturing tecniques and draw a lot of inspiration from the world of research optics. Although I use industrial equipment to manufacture a lot of the parts for the project, the designs are quite adaptable to desktop 3D printing. 
 
-<fsi-viewer width="900" height="630" src="https://anirudhpal.github.io/TeleTracker/assets/NightSkyBIDC.JPG"></fsi-viewer>
-
 ## Star Detection
 
 Before we get into the weeds of actual telescope construction, design and manufacturing; lets acknowledge that when we look up in the sky, most of us can appreicate the beauty of what we are looking at but we are not as good at recognizing stars, celesetial bodies and constelations. Knowing what we are looking at can further enhance our experience and can help us navigate the night-sky. Lets look at an example:
 
 <p align="center">
-  <div class="img-zoom-container">
-    <img src="assets/NightSkyBIDC.JPG">
-    <div id="1r" class="img-zoom-result"></div>
-  </div>
+  <img src="assets/NightSkyBIDC.JPG">
 </p>
 <p align="center">
   Figure 1: Wide-field shoot of the night sky. Beautiful, but there is more too it.
@@ -29,10 +22,7 @@ Before we get into the weeds of actual telescope construction, design and manufa
 Here we see a picture of the night-sky. We see a lot of stars, but most of us do not really recognize what we are looking at. We also miss some significant stellar objects that we have managed to capture in the frame as they are drowned out in the sea of point lights. Lets look at a processed image that was obtained by using a software tool called [Astrometry](http://astrometry.net/).
 
 <p align="center">
-  <div class="img-zoom-container">
-    <img id="2p" src="assets/NightSkyBIDCAnot.jpg">
-    <div id="2r" class="img-zoom-result"></div>
-  </div>
+  <img src="assets/NightSkyBIDCAnot.jpg">
 </p>
 <p align="center">
   Figure 2: Star detection using astrometry.
@@ -317,13 +307,23 @@ The frontplate has mounting points (colored in red) to connect to the middle sub
   <img src="assets/View_Pic.jpg" />
 </p>
 <p align="center">
-  Figure 21: View port and press-fit connection.
+  Figure 23: View port and press-fit connection.
 </p>
 
 #### Focuser
 
-The focuser allows for fine manual adjusment of the foucs. It also lets us mount eye-pieces, collamating tool and camera mount to the telescope. 
+The helical focuser allows for fine manual adjusment of the foucs. It also lets us mount eye-pieces, collamating tool and camera mount to the telescope. 
 
-## VR/AR Integration
+<p align="center">
+  <img src="assets/Eye_Pic.jpg" />
+</p>
+<p align="center">
+  Figure 24: Focuser with eye-piece.
+</p>
 
-## References
+<p align="center">
+  <img src="assets/Cam_Pic.jpg" />
+</p>
+<p align="center">
+  Figure 25: Focuser with camera.
+</p>
