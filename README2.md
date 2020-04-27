@@ -198,6 +198,46 @@ The primary mirror mount has a recces for the mirror to sit in (colored in red).
 
 ### Middle
 
+The middle provides the following functionality:
+* Connection between the back and front sub-assemblies. 
+* Mounting options to mount to an Arca Swiss compatible mount. 
+* Allowing the center of mass of the telescope to be positioned on the mounting points. 
+
+The back carries the primary mirror which needs to be connected to the front that houses the viewport, secondary mirror and eyepiece. It needs a stiff construction which is achieved through the use of solid steel rods. 
+
+The telescope assembly also needs to connect to tripods, gimbal and other such mounts. This is achieved with the help of two movable dovetail connections that are compliment with the Arca Swiss mounting standard. 
+
+Since, the connections are movable, they are also used to balance the mass of the telescope on the connection points. This inter reduces any moments of torque acting on those connection points, reducing the power required to drive the telescope. However, this only achieves what is know as static balance, which provides a few stable orientations. For heavier telescopes, one needs to achieve dynamic balance which will allow all telescope orientations to be stable. One way to achieve that is with the help of careful CAD modeling, where mass is accounted for accurately. 
+
+The key components of this sub-assembly are:
+
+#### Rods
+
+The rod is simple, but needs to be rigid, this part should not be 3D printed and at the very least should be made of a metal tube. I use solid steel with tapped holes (colored in red) for connections. Two rods together act as a guide rail for the movable Arca connections. 
+
+#### Arca Connections
+
+These connections consist of a dovetail portion (colored in red) that attaches to camera mounts. There are two sliding holes (colored in green) that slide on guide rods. It also has a pair of set screws (colored in blue) that immobilizes the connections at the balance point. 
+
 ### Front
+
+ The front provides the following functionality:
+* Retain the secondary mirror.
+* Allow for collimation of the secondary mirror.
+* Connect to the middle sub-assembly.
+* Heatsink for the secondary mirror.
+* Connection for the focuser. 
+
+A lot of the functionality is carried over from the backplate, however the secondary mirror is much smaller so the mechanism used in the backplate had to be miniaturized.
+
+The connection to the focuser is made with the help of a series of connections. We have a straight connection to a M42 male thread. The male thread attaches to the female thread of the helical focuser. The focuser can then accept an eyepiece for manual observation. Or, you can attach a T mount style camera adapter that connects the focuser and a camera for digital observations. 
+
+The key components of this sub-assembly are:
+
+#### Secondary Mirror Mount
+
+#### Frontplate
+
+#### Focuser
 
 ## VR/AR Integration
