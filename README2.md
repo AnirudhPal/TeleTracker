@@ -139,7 +139,7 @@ The key components in this sub-assemlby are:
 
 #### Backplate
 
-It connects to the middle section (colored in red) using reccess and screws. It also houses a pivot socket (colored in green) that a ceramic ball sits on. The weight of the structure is reduced by removing excess material (colored in blue). It also has spring retention sockets (colored in yellow) that provided tension on the pivot mechanism. There are also postioning screw holes (threaded) that pivot the mirror.
+It connects to the middle section (colored in red) using reccess and screws. It also houses a pivot socket (colored in green) that a ceramic ball sits on. The weight of the structure is reduced by removing excess material (colored in blue). It also has spring retention sockets (colored in yellow) that provided tension on the pivot mechanism. There are also postioning screw holes (colored in purple) that pivot the mirror.
 
 <p align="center">
   <iframe src="https://myhub.autodesk360.com/ue28e2e80/shares/public/SH56a43QTfd62c1cd968816ad51a74a58079?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
@@ -164,18 +164,31 @@ It connects to the middle section (colored in red) using reccess and screws. It 
 
 #### Primary Mirror Mount
 
-The primary mirror mount has a recces for the mirror to sit in (colored in red), as well as a pivot socket (colored in green), spring retention sockets (colored in blue) and toe-clamp holes (colored in yellow).
+The primary mirror mount has a recces for the mirror to sit in (colored in red). As well as a pivot socket (colored in green) for the ceramic ball. It also has spring retention sockets (colored in blue) similar to the backplate. There are also toe-clamp holes (colored in yellow) that are used to retain the mirror.
 
-PART ASSEMLBY
+<p align="center">
+  <iframe src="https://myhub.autodesk360.com/ue28e2e80/shares/public/SH56a43QTfd62c1cd968ce56d999e210499a?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+</p>
+<p align="center">
+  Figure 11: CAD Model of mirror mount.
+</p>
 
-PIVOT SOCKET
+<p align="center">
+  <img src="assets/Piv_Pic.jpg" />
+</p>
+<p align="center">
+  Figure 12: Pivoting socket with ceramic ball.
+</p>
 
-TOE CLAMP
+<p align="center">
+  <img src="assets/TP_Pic.jpg" />
+</p>
+<p align="center">
+  Figure 13: Toe-clamps.
+</p>
 
 ### Middle
 
 ### Front
-
-## Star Tracking
 
 ## VR/AR Integration
