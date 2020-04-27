@@ -490,4 +490,11 @@ String getOrient() {
 }
 ```
 
-Here is the code that runs on the Arduino with ATMega 328P: 
+Here is a picture of the setup of the pan and tilt servo:
+
+<p align="center">
+  <img src="assets/Ard_Pic.jpg" />
+</p>
+<p align="center">
+  Figure 26: Pan and tilt servo with Arduino.
+</p>
