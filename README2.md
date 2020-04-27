@@ -35,13 +35,11 @@ Right from the start, I wish to clarify that the information I present here is j
 
 Before we get into the weeds of actual telescope construction, design and manufacturing; lets acknowledge that when we look up in the sky, most of us can appreicate the beauty of what we are looking at but we are not as good at recognizing stars, celesetial bodies and constelations. Knowing what we are looking at can further enhance our experience and can help us navigate the night-sky. Lets look at an example:
 
-<div class="img-zoom-container">
-  <img id="myimage" src="assets/NightSkyBIDC.JPG">
-  <div id="myresult" class="img-zoom-result"></div>
-</div>
-
 <p align="center">
-  <img src="assets/NightSkyBIDC.JPG" />
+  <div class="img-zoom-container">
+    <img id="1p" src="assets/NightSkyBIDC.JPG">
+    <div id="1r" class="img-zoom-result"></div>
+  </div>
 </p>
 <p align="center">
   Figure 1: Wide-field shoot of the night sky. Beautiful, but there is more too it.
@@ -50,7 +48,10 @@ Before we get into the weeds of actual telescope construction, design and manufa
 Here we see a picture of the night-sky. We see a lot of stars, but most of us do not really recognize what we are looking at. We also miss some significant stellar objects that we have managed to capture in the frame as they are drowned out in the sea of point lights. Lets look at a processed image that was obtained by using a software tool called [Astrometry](http://astrometry.net/).
 
 <p align="center">
-  <img src="assets/NightSkyBIDCAnot.jpg" />
+  <div class="img-zoom-container">
+    <img id="2p" src="assets/NightSkyBIDCAnot.jpg">
+    <div id="2r" class="img-zoom-result"></div>
+  </div>
 </p>
 <p align="center">
   Figure 2: Star detection using astrometry.
@@ -277,5 +278,10 @@ The primary mirror mount has a recces for the mirror to sit in (colored in red).
     return {x : x, y : y};
   }
 }
-imageZoom("myimage", "myresult");
 </script>
+     <script>
+     imageZoom("1p", "1r");
+     </script>
+     <script>
+     imageZoom("2p", "2r");
+     </script>
