@@ -1,5 +1,4 @@
 <script type="text/javascript" src="//fsi-site.neptunelabs.com/fsi/viewer/applications/viewer/js/fsiviewer.js"></script>
-<fsi-viewer width="900" height="630" src="https://anirudhpal.github.io/TeleTracker/assets/NightSkyBIDC.JPG"></fsi-viewer>
 
 # AR Telescope - CS590 Independent Study
 
@@ -10,6 +9,8 @@ Augmented/Virtual reality lets us explore worlds right from our living rooms. Ho
 ## Disclaimer
 
 Right from the start, I wish to clarify that the information I present here is just an account of the work I did. It is by no means complete, optimal or ground-breaking. I ran into several technical challenges, some I was able to overcome, others I am still figuring out how to overcome. The biggest take-away that one can expect from this article is the telescope construction. The designs I came up with our quite a bit more mature than designs presented in other DIY articles. I use more precise industrial manufacturing tecniques and draw a lot of inspiration from the world of research optics. Although I use industrial equipment to manufacture a lot of the parts for the project, the designs are quite adaptable to desktop 3D printing. 
+
+<fsi-viewer width="900" height="630" src="https://anirudhpal.github.io/TeleTracker/assets/NightSkyBIDC.JPG"></fsi-viewer>
 
 ## Star Detection
 
@@ -207,7 +208,21 @@ The back carries the primary mirror which needs to be connected to the front tha
 
 The telescope assembly also needs to connect to tripods, gimbal and other such mounts. This is achieved with the help of two movable dovetail connections that are compliment with the Arca Swiss mounting standard. 
 
-Since, the connections are movable, they are also used to balance the mass of the telescope on the connection points. This inter reduces any moments of torque acting on those connection points, reducing the power required to drive the telescope. However, this only achieves what is know as static balance, which provides a few stable orientations. For heavier telescopes, one needs to achieve dynamic balance which will allow all telescope orientations to be stable. One way to achieve that is with the help of careful CAD modeling, where mass is accounted for accurately. 
+Since, the connections are movable, they are also used to balance the mass of the telescope on the connection points. This inter reduces any moments of torque acting on those connection points, reducing the power required to drive the telescope. However, this only achieves what is know as static balance, which provides a few stable orientations. For heavier telescopes, one needs to achieve dynamic balance which will allow all telescope orientations to be stable. One way to achieve that is with the help of careful CAD modeling, where mass is accounted for accurately.
+
+<p align="center">
+  <iframe src="https://myhub.autodesk360.com/ue28e2e80/shares/public/SH56a43QTfd62c1cd968bd6389c20879c4a4?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+</p>
+<p align="center">
+  Figure 14: Cad model of the middle.
+</p>
+
+<p align="center">
+  <img src="assets/Mid_Pic.jpg" />
+</p>
+<p align="center">
+  Figure 15: Middle sub-assembly.
+</p>
 
 The key components of this sub-assembly are:
 
@@ -215,9 +230,37 @@ The key components of this sub-assembly are:
 
 The rod is simple, but needs to be rigid, this part should not be 3D printed and at the very least should be made of a metal tube. I use solid steel with tapped holes (colored in red) for connections. Two rods together act as a guide rail for the movable Arca connections. 
 
+<p align="center">
+  <iframe src="https://myhub.autodesk360.com/ue28e2e80/shares/public/SH56a43QTfd62c1cd9686ad52dd276e1867a?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+</p>
+<p align="center">
+  Figure 16: CAD model of the rod.
+</p>
+
+<p align="center">
+  <img src="assets/Rod_Pic.jpg" />
+</p>
+<p align="center">
+  Figure 17: Rod connecting screw and hole.
+</p>
+
 #### Arca Connections
 
-These connections consist of a dovetail portion (colored in red) that attaches to camera mounts. There are two sliding holes (colored in green) that slide on guide rods. It also has a pair of set screws (colored in blue) that immobilizes the connections at the balance point. 
+These connections consist of a dovetail portion (colored in red) that attaches to camera mounts. There are two sliding holes (colored in green) that slide on guide rods. It also has a pair of set screws (colored in blue) that immobilizes the connections at the balance point.
+
+<p align="center">
+  <iframe src="https://myhub.autodesk360.com/ue28e2e80/shares/public/SH56a43QTfd62c1cd968a792fe219f639985?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+</p>
+<p align="center">
+  Figure 18: CAD model of Arca Swiss mount.
+</p>
+
+<p align="center">
+  <img src="assets/Sid_Pic.jpg" />
+</p>
+<p align="center">
+  Figure 19: Sliding hole with set-screw.
+</p>
 
 ### Front
 
@@ -236,8 +279,16 @@ The key components of this sub-assembly are:
 
 #### Secondary Mirror Mount
 
+The secondary mirror mount has the same features as the back sub-assembly, but it has been miniaturized.
+
 #### Frontplate
+
+The frontplate has mounting points (colored in red) to connect to the middle sub-assembly. It also has a view opening (colored in green) for light to enter the telescope. The secondary mirror mount also has a set-screw connection (colored in blue) for attachment. The focuser connects via press-fit port (colored in yellow). 
 
 #### Focuser
 
+The focuser allows for fine manual adjusment of the foucs. It also lets us mount eye-pieces, collamating tool and camera mount to the telescope. 
+
 ## VR/AR Integration
+
+## References
