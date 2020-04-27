@@ -91,6 +91,16 @@ Use rm to remove index files that you don't need. The nomenclature of the index 
 
 ## Physical Construction
 
+The physical construction that I used is comprised of CNC machined parts made of steel and alluminum. I also use some of the shelf parts that are cheaply available. It is also possible to 3D print some of the parts. I will provide extensive descriptions of the parts and associated designs, so you can build this telescope for your own use. The CAD models will be available through my GrabCAD which can be found [here](google.com)
+
+### Back-Plate
+
+The back-plate plays a few important roles 
+
+<iframe src="https://myhub.autodesk360.com/ue28e2e80/shares/public/SH56a43QTfd62c1cd9681f8496be367dd7b3?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+
+### 
+
 ## Star Tracking
 
 ## VR/AR Integration
