@@ -498,3 +498,10 @@ Here is a picture of the setup of the pan and tilt servo:
 <p align="center">
   Figure 26: Pan and tilt servo with Arduino.
 </p>
+
+## References
+
+1. [Amateur Telescope Making Community](https://stellafane.org/tm/atm/index.html)
+2. [Fusion 360 Learning Resources](https://www.autodesk.com/products/fusion-360/learn-support)
+3. [Bechtel Center Gene Haas Labs](https://www.purdue.edu/bidc/)
+4. [Thor Labs](https://www.thorlabs.com/)
