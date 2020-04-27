@@ -139,7 +139,7 @@ The key components in this sub-assemlby are:
 
 #### Backplate
 
-It connects to the middle section (colored in red) using reccess and screws. It also houses a pivot socket (colored in green) that a ceramic ball sits on. The weight of the structure is reduced by removing excess material (colored in blue). It also has spring retention sockets (colored in yellow) that provided tension on the pivot mechanism. There are also postioning screw holes (colored in purple) that pivot the mirror.
+It connects to the middle section (colored in red) using reccess and screws. It also houses a pivot socket (colored in green) that a ceramic ball sits on. The weight of the structure is reduced by removing excess material (colored in blue). It also has spring retention sockets (colored in yellow) that provided tension on the pivot mechanism. There are also postioning screw holes (threaded) that pivot the mirror.
 
 <p align="center">
   <iframe src="https://myhub.autodesk360.com/ue28e2e80/shares/public/SH56a43QTfd62c1cd968816ad51a74a58079?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
