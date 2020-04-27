@@ -1,7 +1,5 @@
 # AR Telescope - CS590 Independent Study
 
-## Index
-
 ## Abstract
 
 Augmented/Virtual reality lets us explore worlds right from our living rooms. However, these are just virtual constructs. We often forgot the real enviroment around us, and in this case above the us. The night sky is quite fascinating and worth exploring. Unfortunately, the modernization of the world has let to substantial amount of light pollution. If you are in a major city, you would be luck to spot more than a dozen stars. In this independent study, I attempt to explore this often underrated natural environment. I explore everything for constructing a telescope to star-pattern recognition and AR/VR integration. This multidisciplinary approach is enriching as it enabled me to integrate my academic field of computer graphics with my proffesional field of research manufacturing.
@@ -93,12 +91,19 @@ Use rm to remove index files that you don't need. The nomenclature of the index 
 
 The physical construction that I used is comprised of CNC machined parts made of steel and alluminum. I also use some off-the-shelf parts that are cheaply available. It is also possible to 3D print some of the parts. I provide descriptions of the parts and associated designs, so you can build this telescope for your own use. 
 
-<iframe src="https://myhub.autodesk360.com/ue28e2e80/shares/public/SH56a43QTfd62c1cd968b35b710071d0253e?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
 <p align="center">
-  Figure 4: CAD Model of the Telescope
+  <iframe src="https://myhub.autodesk360.com/ue28e2e80/shares/public/SH56a43QTfd62c1cd968b35b710071d0253e?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+ </p>
+<p align="center">
+  Figure 4: CAD model of the telescope.
 </p>
 
-REAL PICTURE
+<p align="center">
+  <img src="assets/Full_Pic.jpg" />
+</p>
+<p align="center">
+  Figure 5: Telescope on a tripod.
+</p>
 
 The telescope tube can be sub-divided into three sub-assemblies.
 
