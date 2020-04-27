@@ -1,5 +1,5 @@
 <script type="text/javascript" src="//fsi-site.neptunelabs.com/fsi/viewer/applications/viewer/js/fsiviewer.js"></script>
-<fsi-viewer width="900" height="630" src="assets/NightSkyBIDC.JPG"></fsi-viewer>
+<fsi-viewer width="900" height="630" src="https://anirudhpal.github.io/TeleTracker/assets/NightSkyBIDC.JPG"></fsi-viewer>
 
 # AR Telescope - CS590 Independent Study
 
