@@ -1,13 +1,5 @@
-<script src="https://unpkg.com/iv-viewer/dist/iv-viewer.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/iv-viewer/dist/iv-viewer.css">
-<script>
- import ImageViewer from 'iv-viewer';
-
-const image = document.querySelector('#image');
-const viewer = new ImageViewer(image, options); 
-</script>
-
-<img id="image" src="assets/NightSkyBIDC.JPG" />
+<script type="text/javascript" src="//fsi-site.neptunelabs.com/fsi/viewer/applications/viewer/js/fsiviewer.js"></script>
+<fsi-viewer width="900" height="630" src="assets/NightSkyBIDC.JPG"></fsi-viewer>
 
 # AR Telescope - CS590 Independent Study
 
