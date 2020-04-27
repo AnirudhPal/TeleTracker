@@ -112,30 +112,55 @@ The telescope tube can be sub-divided into three sub-assemblies.
 The back provides the following functionality:
 * Retain the primary mirror.
 * Allow for collimation of the primary mirror.
-* Connect to the middle.
+* Connect to the middle sub-assembly.
 * Heatsink for the primary mirror.
 
-The mirror has to be suspended with minimal obstruction of the reflective surface. This is acheived through toe-clamp style fixturing used in the four corners. Obstructions in the path of light will dim the image formed by the mirror and thus they would have to be minimized. It might be tempting to clamp on the mirror from the sides, but the fixturing of the mirror is not meant to be tight, as that can deform the mirror, and a side clamping approach could result in the mirror falling out. Thus toe-clamp is the best approach.
+The mirror has to be suspended with minimal obstruction of the reflective surface. This is acheived through toe-clamp style fixturing in the four corners. Obstructions in the path of light will dim the image formed by the mirror and thus they would have to be minimized. It might be tempting to clamp on the mirror from the sides, but the fixturing of the mirror is not meant to be tight, as that can deform the mirror, and a side style clamping approach could result in the mirror falling out. Thus, toe-clamp is the best approach.
 
-The parabolic mirror used has a very precise surface abd needs to be positioned accurately in order to function proprerly. Unfortunately, it is very difficult to manufacture a retainment machnaism that can accurately postion the mirror, thus most optical setups include rotational adjustments that can be fine tuned on the final assembly. This was acheived using a system of springs, fulcrum and positioning screws.
+The parabolic mirror used has a very precise surface and needs to be positioned accurately in order to function proprerly. Unfortunately, it is very difficult to manufacture a retainment machnaism that can accurately postion the mirror, thus most optical setups include rotational adjustments that can be fine tuned on the final assembly. This was acheived using a system of springs, a fulcrum and positioning screws.
 
-The entire subassemly also needs to be linked up to the middle portion and maintain rigidity. I used straight beams in this case because the telescope was small, but for a larger telescope one would need to use cross beams to increase the torsional rigidity of the frame. The metal also acts a passive heatsink for the mirror. The mirror changes it's shape according to its temperature, this means it needs to collimated while it is in it's operating temperature. The metal facilitates in allowing the temperature of the mirror to normalize with ambient temperature.
+The entire sub-assembly also needs to be linked up to the middle portion and maintain rigidity. I used straight beams because the telescope was small, but for a larger telescope one would need to use cross beams to increase the torsional rigidity of the frame. The metal also acts a passive heatsink for the mirror. The mirror changes it's shape according to its temperature, this means it needs to be collimated while it is at it's operating temperature. The metal helps this by allowing the temperature of the mirror to normalize with ambient temperature quickly.
 
-BACK ASSEMBLY
+<p align="center">
+  <iframe src="https://myhub.autodesk360.com/ue28e2e80/shares/public/SH56a43QTfd62c1cd968ba4ba6a925e52e94?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+ </p>
+<p align="center">
+  Figure 6: CAD model of the back sub-assembly.
+</p>
 
-REAL PICTURE
+<p align="center">
+  <img src="assets/Back_Pic.jpg" />
+</p>
+<p align="center">
+  Figure 7: Back sub-assembly.
+</p>
 
 The key components in this sub-assemlby are:
 
 #### Backplate
 
-It is used to connect to the middle section (colored in red), it also houses a pivot socket (colored in green) and the weight of the structure is reduced by removing excess material (colored in blue). It also has spring retention sockets (colored in yellow) and postioning screw holes (colored in purple).
+It connects to the middle section (colored in red) using reccess and screws. It also houses a pivot socket (colored in green) that a ceramic ball sits on. The weight of the structure is reduced by removing excess material (colored in blue). It also has spring retention sockets (colored in yellow) that provided tension on the pivot mechanism. There are also postioning screw holes (colored in purple) that pivot the mirror.
 
-PART ASSEMBLY
+<p align="center">
+  <iframe src="https://myhub.autodesk360.com/ue28e2e80/shares/public/SH56a43QTfd62c1cd968816ad51a74a58079?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+</p>
+<p align="center">
+  Figure 8: CAD model of backplate.
+</p>
 
-SPRING RETENTION
+<p align="center">
+  <img src="assets/Spring_Pic.jpg" />
+</p>
+<p align="center">
+  Figure 9: Spring retention mechanism.
+</p>
 
-ROD CONNECTION
+<p align="center">
+  <img src="assets/Con_Pic.jpg" />
+</p>
+<p align="center">
+  Figure 10: Connecting rod.
+</p>
 
 #### Primary Mirror Mount
 
