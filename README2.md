@@ -327,3 +327,167 @@ The helical focuser allows for fine manual adjusment of the foucs. It also lets 
 <p align="center">
   Figure 25: Focuser with camera.
 </p>
+
+## VR Tracking Data
+
+To integrate the VR headset with telescope, one of the things that I experimented with was getting the orientation data from the headset to drive a pan and tilt servo. The pan and tilt servo mirrors the orientation of the VR headset. I am using an Oculus Quest, so I was able to get the tracking data wirlessly using the ADB tool. Once I establish wireless ADB connection, I run the following code in Processing:
+
+```c
+// Import Libs
+import java.io.*;
+import processing.serial.*;
+
+Serial myPort;  // Create object from Serial class
+String val;     // Data received from the serial port
+
+// Setup
+void setup() {
+  // Set Canvas
+  size(640, 360, P3D);
+
+  // Fill Object with Color
+  fill(100);
+  
+   // Set Camera
+  camera(0.0, 0.0, 200.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0); // (Pos, LookAt, Dir)
+  
+  String portName = Serial.list()[2]; //change the 0 to a 1 or 2 etc. to match your port
+  println(portName);
+  myPort = new Serial(this, portName, 9600);
+}
+
+// Render Loop
+void draw() {
+  // Get Orientation
+  String ort = getOrient();
+
+  // Send to Arduino
+  sendArduino(ort);
+
+  // Graph Cube
+  graphCube(ort);
+}
+
+// Graph Cube
+void graphCube(String rot) {
+  // Split Component
+  String[] rots = rot.split(",");
+
+  // Extract Float
+  //float A = float(rots[0]);
+  float B = float(rots[1]);
+  float C = float(rots[2]);
+
+  // Set Lights
+  lights();
+
+  // Change Background
+  background(0);
+  
+  // Rotate
+  rotateX(radians(-B));
+  rotateY(radians(C));
+
+  // Create Box
+  box(90);
+
+  // Set Line Color
+  stroke(255);
+
+  // Create Lines
+  line(-100, 0, 0, 100, 0, 0);
+  line(0, -100, 0, 0, 100, 0);
+  line(0, 0, -100, 0, 0, 100);
+}
+
+// Send Orientation PWM to Arduino
+void sendArduino(String rot) {
+  // Split Component
+  String[] rots = rot.split(",");
+
+  // Extract Float
+  //float A = float(rots[0]);
+  float B = float(rots[1]);
+  float C = float(rots[2]);
+  
+  // Move to Positve
+  B += 90.0;
+  C += 90.0;
+  
+  // Trim Bottom
+  if(B < 0.0)
+    B = 0.0;
+  if(C < 0.0)
+    C = 0.0;
+    
+  // Trim Top
+  if(B > 180.0)
+    B = 180.0;
+  if(C > 180.0)
+    C = 180.0;
+
+  // Map to PWM Char
+  //char a = char(int(map(A, 0.0, 10.0, 0.0, 255.0)));
+  char b = char(int(B));  // Pitch
+  char c = char(int(C));  // Yaw
+
+  // Send Data
+  print("A");
+  print(int(b));
+  print("B");
+  println(int(c));
+  String out = "A" + b + "B" + c;
+  myPort.write(out);
+}
+
+// Get VR Headset Orientation
+String getOrient() {
+  // Using ADB to Get Orientation
+  String[] argv = {"adb", "shell", "dumpsys TrackingService | grep \"Rotation\" | head" };
+
+  // Hold Response
+  String std_output;
+
+  // Try - Catch Block
+  try {
+    // Create Buffer and Stream Input from Command Line Execution
+    BufferedReader in = new BufferedReader(new InputStreamReader(exec(argv).getInputStream()));
+
+    // Read Line
+    std_output = in.readLine();
+
+    // Index of Euler
+    int ind = std_output.indexOf("Euler");
+
+    // Error Check
+    if (ind < 0)
+      throw new IOException();
+
+    // Get Substring of Euler
+    std_output = std_output.substring(ind);
+
+    // Index of ( & )
+    int ind1 = std_output.indexOf("(");
+    int ind2 = std_output.indexOf(")");
+
+    // Error Check
+    if (ind1 < 0 || ind2 < 0)
+      throw new IOException();
+
+    // Get Substring of Rotation
+    std_output = std_output.substring(ind1+2, ind2);
+
+    // Close Input Buffer Buffer
+    in.close();
+  } 
+  catch(IOException ee) {
+    // Error (Return Null Orientation)
+    std_output = "0.0, 0.0, 0.0";
+  }
+
+  // Return Orientation
+  return std_output;
+}
+```
+
+Here is the code that runs on the Arduino with ATMega 328P: 
