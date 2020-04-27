@@ -91,15 +91,39 @@ Use rm to remove index files that you don't need. The nomenclature of the index 
 
 ## Physical Construction
 
-The physical construction that I used is comprised of CNC machined parts made of steel and alluminum. I also use some of the shelf parts that are cheaply available. It is also possible to 3D print some of the parts. I will provide extensive descriptions of the parts and associated designs, so you can build this telescope for your own use. The CAD models will be available through my GrabCAD which can be found [here](google.com)
+The physical construction that I used is comprised of CNC machined parts made of steel and alluminum. I also use some of the shelf parts that are cheaply available. It is also possible to 3D print some of the parts. I will provide extensive descriptions of the parts and associated designs, so you can build this telescope for your own use. The telescope tube can be sub-divided into three sub-assemblies.
 
-### Back-Plate
+FULL ASSEMBLY
 
-The back-plate plays a few important roles 
+REAL PICTURE
 
-<iframe src="https://myhub.autodesk360.com/ue28e2e80/shares/public/SH56a43QTfd62c1cd9681f8496be367dd7b3?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+### Back
 
-### 
+The back provides the following functionality:
+* Retain the primary mirror.
+* Allow for collimation of the primary mirror.
+* Connect to the middle.
+* Heatsink for the primary mirror.
+
+The mirror has to be suspended with minimal obstruction of the reflective surface. This is acheived through toe-clamp style fixturing used in the four corners. Obstructions in the path of light will dim the image formed by the mirror and thus they would have to be minimized. It might be tempting to clamp on the mirror from the sides, but the fixturing of the mirror is not meant to be tight, as that can deform the mirror, and a side clamping approach could result in the mirror falling out. Thus toe-clamp is the best approach.
+
+The parabolic mirror used has a very precise surface abd needs to be positioned accurately in order to function proprerly. Unfortunately, it is very difficult to manufacture a retainment machnaism that can accurately postion the mirror, thus most optical setups include rotational adjustments that can be fine tuned on the final assembly. This was acheived using a system of springs, fulcrum and positioning screws.
+
+The entire subassemly also needs to be linked up to the middle portion and maintain rigidity. I used straight beams in this case because the telescope was small, but for a larger telescope one would need to use cross beams to increase the torsional rigidity of the frame. The metal also acts a passive heatsink for the mirror. The mirror changes it's shape according to its temperature, this means it needs to collimated while it is in it's operating temperature. The metal facilitates in allowing the temperature of the mirror to normalize with ambient temperature.
+
+BACK ASSEMBLY
+
+REAL PICTURE
+
+The key components in this sub-assemlby are:
+
+#### Backplate
+
+It is used to connect to the middle section (color), it also houses a pivot socket and the weight of the structure is reduced by removing excess 
+
+### Middle
+
+### Front
 
 ## Star Tracking
 
