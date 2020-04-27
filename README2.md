@@ -13,7 +13,7 @@ Right from the start, I wish to clarify that the information I present here is j
 Before we get into the weeds of actual telescope construction, design and manufacturing; lets acknowledge that when we look up in the sky, most of us can appreicate the beauty of what we are looking at but we are not as good at recognizing stars, celesetial bodies and constelations. Knowing what we are looking at can further enhance our experience and can help us navigate the night-sky. Lets look at an example:
 
 <p align="center">
-  <img src="assets/NightSkyBIDC.JPG">
+  <img src="assets/NightSkyBIDC.jpg">
 </p>
 <p align="center">
   Figure 1: Wide-field shoot of the night sky. Beautiful, but there is more too it.
