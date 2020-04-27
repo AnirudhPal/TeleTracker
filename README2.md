@@ -91,11 +91,16 @@ Use rm to remove index files that you don't need. The nomenclature of the index 
 
 ## Physical Construction
 
-The physical construction that I used is comprised of CNC machined parts made of steel and alluminum. I also use some of the shelf parts that are cheaply available. It is also possible to 3D print some of the parts. I will provide extensive descriptions of the parts and associated designs, so you can build this telescope for your own use. The telescope tube can be sub-divided into three sub-assemblies.
+The physical construction that I used is comprised of CNC machined parts made of steel and alluminum. I also use some off-the-shelf parts that are cheaply available. It is also possible to 3D print some of the parts. I provide descriptions of the parts and associated designs, so you can build this telescope for your own use. 
 
-FULL ASSEMBLY
+<iframe src="https://myhub.autodesk360.com/ue28e2e80/shares/public/SH56a43QTfd62c1cd968b35b710071d0253e?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+<p align="center">
+  Figure 4: CAD Model of the Telescope
+</p>
 
 REAL PICTURE
+
+The telescope tube can be sub-divided into three sub-assemblies.
 
 ### Back
 
@@ -119,7 +124,23 @@ The key components in this sub-assemlby are:
 
 #### Backplate
 
-It is used to connect to the middle section (color), it also houses a pivot socket and the weight of the structure is reduced by removing excess 
+It is used to connect to the middle section (colored in red), it also houses a pivot socket (colored in green) and the weight of the structure is reduced by removing excess material (colored in blue). It also has spring retention sockets (colored in yellow) and postioning screw holes (colored in purple).
+
+PART ASSEMBLY
+
+SPRING RETENTION
+
+ROD CONNECTION
+
+#### Primary Mirror Mount
+
+The primary mirror mount has a recces for the mirror to sit in (colored in red), as well as a pivot socket (colored in green), spring retention sockets (colored in blue) and toe-clamp holes (colored in yellow).
+
+PART ASSEMLBY
+
+PIVOT SOCKET
+
+TOE CLAMP
 
 ### Middle
 
