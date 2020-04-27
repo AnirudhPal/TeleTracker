@@ -18,7 +18,7 @@ Before we get into the weeds of actual telescope construction, design and manufa
 
 <p align="center">
   <div class="img-zoom-container">
-    <img id="1p" src="assets/NightSkyBIDC.JPG">
+    <img src="assets/NightSkyBIDC.JPG">
     <div id="1r" class="img-zoom-result"></div>
   </div>
 </p>
@@ -275,15 +275,50 @@ A lot of the functionality is carried over from the backplate, however the secon
 
 The connection to the focuser is made with the help of a series of connections. We have a straight connection to a M42 male thread. The male thread attaches to the female thread of the helical focuser. The focuser can then accept an eyepiece for manual observation. Or, you can attach a T mount style camera adapter that connects the focuser and a camera for digital observations. 
 
+<p align="center">
+  <iframe src="https://myhub.autodesk360.com/ue28e2e80/shares/public/SH56a43QTfd62c1cd968408b3642f0e9a590?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+</p>
+<p align="center">
+  Figure 20: CAD model of front.
+</p>
+
+<p align="center">
+  <img src="assets/Front_Pic.jpg" />
+</p>
+<p align="center">
+  Figure 21: Front sub-assembly.
+</p>
+
 The key components of this sub-assembly are:
 
 #### Secondary Mirror Mount
 
 The secondary mirror mount has the same features as the back sub-assembly, but it has been miniaturized.
 
+<p align="center">
+  <img src="assets/Sec_Pic.jpg" />
+</p>
+<p align="center">
+  Figure 21: Secondary mirror mount.
+</p>
+
 #### Frontplate
 
 The frontplate has mounting points (colored in red) to connect to the middle sub-assembly. It also has a view opening (colored in green) for light to enter the telescope. The secondary mirror mount also has a set-screw connection (colored in blue) for attachment. The focuser connects via press-fit port (colored in yellow). 
+
+<p align="center">
+  <iframe src="https://myhub.autodesk360.com/ue28e2e80/shares/public/SH56a43QTfd62c1cd968a476cb4af7430fb8?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+</p>
+<p align="center">
+  Figure 22: CAD model of front part.
+</p>
+
+<p align="center">
+  <img src="assets/View_Pic.jpg" />
+</p>
+<p align="center">
+  Figure 21: View port and press-fit connection.
+</p>
 
 #### Focuser
 
