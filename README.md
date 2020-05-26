@@ -114,6 +114,7 @@ Fig 8: BLDC drive analog and digital commutation.
 
 Digital Commutation Table:
 
+
 Step|Phase A|Phase B|Phase C
 :-:|:-:|:-:|:-:
 1|1|0|1
@@ -145,6 +146,7 @@ Fig 10: Hall-effect illustration.
 
 Notes on the SPI Interface Registers
 
+
 |Register Address|Register Purpose|Notes|Type|
 |:-:|:-:|:-:|:-:|
 |0x0016|Zero Postion 6-13 bit|Bits 0-7 are used for this.|Read/Write|
@@ -155,12 +157,14 @@ Notes on the SPI Interface Registers
 
 Notes on the SPI Interface Packet
 
+
 |Packet Scheme|||
 |:-:|:-:|:-:|
 |15 bit|14 bit|13-0 bits|
 |Even Parity Bit|Read/Write Bit|Data/Register Address|
 
 Notes on the SPI Interface Read
+
 
 |Master|Direction|Slave|Purpose|
 |:-:|:-:|:-:|:-:|
